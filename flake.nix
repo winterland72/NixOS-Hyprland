@@ -12,8 +12,8 @@
 	inputs@{ self,nixpkgs, ... }:
     	let
       system = "x86_64-linux";
-      host = "NixOS-Hyprland";
-      username = "alice";
+      host = "nixosbox";
+      username = "scell";
 
     pkgs = import nixpkgs {
        	inherit system;

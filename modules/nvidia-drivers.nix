@@ -15,13 +15,13 @@ in
   	enable = true;
   	enable32Bit = true;
 	  extraPackages = with pkgs; [
-	    vaapiVdpau
+	  vaapiVdpau
   	  libvdpau
   	  libvdpau-va-gl 
   	  nvidia-vaapi-driver
   	  vdpauinfo
-	    libva
- 		  libva-utils		
+	  libva
+ 	  libva-utils		
     	];
   	};
 

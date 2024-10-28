@@ -102,13 +102,13 @@
 
 
   # Extra Module Options
-  drivers.amdgpu.enable = true;
+  #drivers.amdgpu.enable = true;
   drivers.intel.enable = true;
-   drivers.nvidia.enable = true;
+  drivers.nvidia.enable = true;
   drivers.nvidia-prime = {
-    enable = false;
-    intelBusID = "";
-    nvidiaBusID = "";
+    enable = true;
+    intelBusID = "PCI:0:0:2:0";
+    nvidiaBusID = "PCI:0:1:0:0";
   };
   vm.guest-services.enable = false;
   local.hardware-clock.enable = false;
@@ -119,7 +119,7 @@
   networking.timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
 
   # Set your time zone.
-  time.timeZone = "Asia/Seoul";
+  time.timeZone = "Europe/Stockholm";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -145,15 +145,12 @@
 		  portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland; # xdphls
   	  xwayland.enable = true;
       };
-
-	
 	  waybar.enable = true;
 	  hyprlock.enable = true;
 	  firefox.enable = true;
 	  git.enable = true;
-    nm-applet.indicator = true;
-    #neovim.enable = true;
-
+      nm-applet.indicator = true;
+      neovim.enable = true;
 	  thunar.enable = true;
 	  thunar.plugins = with pkgs.xfce; [
 		  exo
@@ -165,15 +162,14 @@
 	
     virt-manager.enable = false;
     
-    #steam = {
-    #  enable = true;
-    #  gamescopeSession.enable = true;
-    #  remotePlay.openFirewall = true;
-    #  dedicatedServer.openFirewall = true;
-    #};
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
     
     xwayland.enable = true;
-
     dconf.enable = true;
     seahorse.enable = true;
     fuse.userAllowOther = true;
@@ -211,7 +207,11 @@
     wget
     xdg-user-dirs
     xdg-utils
-
+    calibre
+    remmina
+    obsidian
+    prismlauncher
+    deadbeef-with-plugins
     fastfetch
     (mpv.override {scripts = [mpvScripts.mpris];}) # with tray
     #ranger
@@ -221,7 +221,7 @@
     btop
     brightnessctl # for brightness control
     cava
-    #cliphist
+    cliphist
     eog
     gnome-system-monitor
     file-roller
@@ -258,10 +258,10 @@
     yad
     yt-dlp
 
-    #waybar  # if wanted experimental next line
-    #(pkgs.waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];}))
+    waybar  # if wanted experimental next line
+    (pkgs.waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];}))
   ]) ++ [
-	  python-packages
+	 python-packages
   ];
 
   # FONTS
@@ -271,7 +271,7 @@
     noto-fonts-cjk-sans
     jetbrains-mono
     font-awesome
-	  terminus_font
+	terminus_font
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
  	];
 
@@ -310,7 +310,7 @@
     };
     
     smartd = {
-      enable = false;
+      enable = true;
       autodetect = true;
     };
     
@@ -322,7 +322,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-	    wireplumber.enable = true;
+	  wireplumber.enable = true;
   	  };
 	
 	  udev.enable = true;
@@ -340,16 +340,16 @@
     nfs.server.enable = false;
   
     openssh.enable = true;
-    flatpak.enable = false;
+    flatpak.enable = true;
 	
   	blueman.enable = true;
   	
   	#hardware.openrgb.enable = true;
   	#hardware.openrgb.motherboard = "amd";
 
-	  fwupd.enable = true;
+	fwupd.enable = true;
 
-	  upower.enable = true;
+	upower.enable = true;
     
     gnome.gnome-keyring.enable = true;
     
@@ -360,20 +360,20 @@
     #  ];
     #};
     
-    #avahi = {
-    #  enable = true;
-    #  nssmdns4 = true;
-    #  openFirewall = true;
-    #};
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
     
     #ipp-usb.enable = true;
     
-    #syncthing = {
-    #  enable = false;
-    #  user = "${username}";
-    #  dataDir = "/home/${username}";
-    #  configDir = "/home/${username}/.config/syncthing";
-    #};
+    syncthing = {
+      enable = true;
+      user = "${username}";
+      dataDir = "/home/${username}";
+      configDir = "/home/${username}/.config/syncthing";
+    };
 
   };
   
@@ -490,7 +490,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
