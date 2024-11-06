@@ -45,9 +45,9 @@
     };
 
     # Needed For Some Steam Games
-    #kernel.sysctl = {
-    #  "vm.max_map_count" = 2147483642;
-    #};
+    kernel.sysctl = {
+      "vm.max_map_count" = 2147483642;
+    };
 
     ## BOOT LOADERS: NOT USE ONLY 1. either systemd or grub  
     # Bootloader SystemD
@@ -77,7 +77,7 @@
   
     # Make /tmp a tmpfs
     tmp = {
-      useTmpfs = false;
+      useTmpfs = true;
       tmpfsSize = "30%";
       };
     
@@ -107,8 +107,8 @@
   drivers.nvidia.enable = true;
   drivers.nvidia-prime = {
     enable = true;
-    intelBusID = "PCI:0:0:2:0";
-    nvidiaBusID = "PCI:0:1:0:0";
+    intelBusID = "PCI:0:2:0";
+    nvidiaBusID = "PCI:1:0:0";
   };
   vm.guest-services.enable = false;
   local.hardware-clock.enable = false;
@@ -160,7 +160,7 @@
 		  tumbler
   	  ];
 	
-    virt-manager.enable = false;
+    virt-manager.enable = true;
     
     steam = {
       enable = true;
@@ -257,7 +257,7 @@
     wlogout
     yad
     yt-dlp
-
+    qbittorrent
     waybar  # if wanted experimental next line
     (pkgs.waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];}))
   ]) ++ [
