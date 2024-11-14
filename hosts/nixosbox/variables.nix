@@ -4,7 +4,7 @@
   gitEmail = "ejhay.games@gmail.com";
 
   # Hyprland Settings
-  extraMonitorSettings = "";
+  extraMonitorSettings = "1";
 
   # Waybar Settings
   clock24h = true;

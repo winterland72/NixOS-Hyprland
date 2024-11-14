@@ -10,23 +10,23 @@ alias lt='eza -a --tree --level=1 --icons'
 
 # Starting down here, are set in user.nix
 
-#ZSH_THEME="xiong-chiamiov-plus"
+ZSH_THEME="xiong-chiamiov-plus"
 
-#plugins=(
-#    git
-    #zsh-autosuggestions
-    #zsh-syntax-highlighting
-#)
+plugins=(
+    git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
 
 # Display Pokemon-colorscripts
 # Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
-#pokemon-colorscripts --no-title -s -r
+pokemon-colorscripts --no-title -s -r
 
 
 # Set-up FZF key bindings (CTRL R for fuzzy history finder)
-#source <(fzf --zsh)
+source <(fzf --zsh)
 
-#HISTFILE=~/.zsh_history
-#HISTSIZE=10000
-#SAVEHIST=10000
-#setopt appendhistory
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory

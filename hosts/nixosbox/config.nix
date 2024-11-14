@@ -214,9 +214,9 @@
     deadbeef-with-plugins
     fastfetch
     (mpv.override {scripts = [mpvScripts.mpris];}) # with tray
-    #ranger
-      
+
     # Hyprland Stuff
+    
     ags        
     btop
     brightnessctl # for brightness control
@@ -257,7 +257,7 @@
     wlogout
     yad
     yt-dlp
-    qbittorrent
+    vscodium-fhs
     waybar  # if wanted experimental next line
     (pkgs.waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];}))
   ]) ++ [
