@@ -193,6 +193,7 @@
     curl
     cpufrequtils
     duf
+    direnv
     eza
     ffmpeg   
     glib #for gsettings to work
