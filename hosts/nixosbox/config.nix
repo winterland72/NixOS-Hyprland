@@ -353,12 +353,12 @@
     
     gnome.gnome-keyring.enable = true;
     
-    #printing = {
-    #  enable = false;
-    #  drivers = [
-        # pkgs.hplipWithPlugin
-    #  ];
-    #};
+    printing = {
+      enable = false;
+      drivers = [
+         pkgs.hplipWithPlugin
+      ];
+    };
     
     avahi = {
       enable = true;
@@ -366,7 +366,7 @@
       openFirewall = true;
     };
     
-    #ipp-usb.enable = true;
+    ipp-usb.enable = true;
     
     syncthing = {
       enable = true;
@@ -398,11 +398,11 @@
 	  cpuFreqGovernor = "schedutil";
   };
 
-  #hardware.sane = {
-  #  enable = true;
-  #  extraBackends = [ pkgs.sane-airscan ];
-  #  disabledDefaultBackends = [ "escl" ];
-  #};
+  hardware.sane = {
+    enable = true;
+    extraBackends = [ pkgs.sane-airscan ];
+    disabledDefaultBackends = [ "escl" ];
+  };
 
   # Extra Logitech Support
   hardware.logitech.wireless.enable = false;
